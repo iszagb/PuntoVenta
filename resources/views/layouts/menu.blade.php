@@ -13,8 +13,8 @@
   <div class="nav-wraper">
     <div class="navbar">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="index.html"> home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about-us.html">Desarrolladores</a></li>
+        <li class="nav-item"><a class="nav-link" href="welcome"> home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{action('PaginaController@desarrollador')}}">Desarrolladores</a></li>
         <li class="nav-item"><a class="nav-link" href="menu.html">menu</a></li>
         <li class="nav-item"><a class="nav-link" href="book-table.html">Book
             Table</a></li>

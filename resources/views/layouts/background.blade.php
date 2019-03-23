@@ -38,52 +38,12 @@
 			</div>
 		</section>
 		<!-- Start banner bottom -->
-		<div class="row banner-bottom align-items-center justify-content-center">
-			<div class="col-lg-8">
-				<div class="banner_content">
-					<div class="row d-flex align-items-center">
-						<div class="col-lg-8 col-md-12">
-							<p class="top-text">Punto Venta en linea</p>
-							<h1>Punto Venta en linea</h1>
-							<p>Sistema enfocado a negocios nuevos que buscan un software de punto de venta enconomico, con la
-                  facilidad de modificarlo a su gusto mediante una interfaz amigable.</p>
-						</div>
-						<div class="col-lg-4 col-md-12">
-							<div class="banner-btn">
-								<a class="genric-btn info-border text-uppercase" href="{{action('PaginaController@desarrollador')}}">Desarrolladores</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        @yield('content')
 		<!-- End banner bottom -->
 		<!--================ End Home Banner Area =================-->
 
 		<!--================ Start Breakfast Area =================-->
-		<div class="breakfast-area section_gap_top">
-			<div class="container">
-				<div class="row align-items-center justify-content-center">
-					<div class="col-lg-5">
-						<div class="left-content">
-							<h1>Un punto de venta configurable a tu gusto </h1>
-							<p>Mediante nuestro sistema te permitimos modificar el menu para que agregues
-                  los productos que quieras, sin necesidad de preocuparte por llamar a un técnico
-                    para que te ayude</p>
-							<p>Todo esto para que no tengas que gastar tanto y puedas emprender tu negocio
-                  propiamente!</p>
-							<a href="#" class="genric-btn info-border">Ir a menu</a>
-						</div>
-					</div>
-					<div class="col-lg-6 offset-lg-1">
-						<div class="right-img">
-							<img class="img1 img-fluid" src="{{asset('img/food/homeguy.jpg')}}" alt="">
-							<img class="img2 img-fluid" src="{{asset('img/food/tech.png')}}" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+
 		<!--================ End Breakfast Area =================-->
 
 		<!--================ Start Lunch Area =================-->
