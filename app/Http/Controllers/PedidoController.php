@@ -36,7 +36,13 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $ped = new pedidos();
+      $ped->mesa= $request->input('mesa');
+      $ped->platillo= $request->input('platillo');
+      $ped->cantidad= $request->input('cantidad');
+      $ped->save();
+
+      return redirect()->route('pedidos.index');
     }
 
     /**
