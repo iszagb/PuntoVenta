@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/pedidos','PedidoController');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
