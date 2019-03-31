@@ -21,10 +21,10 @@
     								<div class="country">{{$pedido->mesa}}</div>
     								<div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
-                    <a href="{{route('pedidos.edit', $pedido->mesa) }}" class = "btn btn-sm btn-warning">Editar</a>
-                    <form action="{{route('pedidos.destroy',$pedido->id)}}" metod="POST">
-                       @csrf
+                    <a href="{{route('pedidos.edit', $pedido->id) }}" class = "btn btn-sm btn-warning">Editar</a>
+                    <form action="{{route('pedidos.destroy', $pedido->id)}}" metod="POST">
                        <input type="hidden" name="_method" value="DELETE">
+                       @csrf
                        <button class="btn btn-sm btn-danger">Borrar</button>
                     </form>
           				 </div>

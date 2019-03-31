@@ -53,7 +53,7 @@ class PedidoController extends Controller
      */
     public function show(Pedidos $pedidos)
     {
-        //
+        return view('pedidos.pedidosShow', compact('pedidos'));
     }
 
     /**
@@ -80,7 +80,7 @@ class PedidoController extends Controller
       $pedidos->platillo= $request->input('platillo');
       $pedidos->cantidad= $request->input('cantidad');
       $pedidos->save();
-      return redirect()->route('pedidos.show', $pedidos->mesa);
+      return redirect()->route('pedidos.index', $pedidos->id);
     }
 
     /**
