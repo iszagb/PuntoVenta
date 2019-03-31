@@ -12,7 +12,8 @@
     								<div class="serial">id</div>
     								<div class="country">Mesa</div>
     								<div class="visit">Platillo</div>
-    								<div class="percentage">Cantidad</div>
+    								<div class="visit">Cantidad</div>
+                    <div class="visit">Detalle</div>
     							</div>
                   @foreach ($pedidos as $pedido)
     							<div class="table-row">
@@ -20,7 +21,13 @@
     								<div class="country">{{$pedido->mesa}}</div>
     								<div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
-    							</div>
+                    <a href="{{route('pedidos.edit', $pedido->mesa) }}" class = "btn btn-sm btn-warning">Editar</a>
+                    <form action="{{route('pedidos.destroy',$pedido->id)}}" metod="POST">
+                       @csrf
+                       <input type="hidden" name="_method" value="DELETE">
+                       <button class="btn btn-sm btn-danger">Borrar</button>
+                    </form>
+          				 </div>
                   @endforeach
   							</div>
   </div>

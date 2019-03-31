@@ -64,7 +64,7 @@ class PedidoController extends Controller
      */
     public function edit(Pedidos $pedidos)
     {
-        //
+        return view('pedidos.pedidosForm', compact('pedidos'));
     }
 
     /**
@@ -76,7 +76,11 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedidos $pedidos)
     {
-        //
+      $pedidos->mesa= $request->input('mesa');
+      $pedidos->platillo= $request->input('platillo');
+      $pedidos->cantidad= $request->input('cantidad');
+      $pedidos->save();
+      return redirect()->route('pedidos.show', $pedidos->mesa);
     }
 
     /**
@@ -87,6 +91,7 @@ class PedidoController extends Controller
      */
     public function destroy(Pedidos $pedidos)
     {
-        //
+      $pedidos->delete();
+      return redirect()->route('pedidos.index');
     }
 }
