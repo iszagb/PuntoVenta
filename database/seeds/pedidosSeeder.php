@@ -17,5 +17,6 @@ class pedidosSeeder extends Seeder
           'platillo' => 'hot dog',
           'cantidad' => 1,
         ]);
+        factory(App\Pedidos::class, 25)->create();
     }
 }

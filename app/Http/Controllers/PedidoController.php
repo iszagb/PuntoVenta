@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Pedidos;
+use App\Pedido;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -51,7 +51,7 @@ class PedidoController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedidos $pedidos)
+    public function show(Pedido $pedidos)
     {
         return view('pedidos.pedidosShow', compact('pedidos'));
     }
@@ -62,7 +62,7 @@ class PedidoController extends Controller
      * @param  \App\Pedidos  $pedidos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pedidos $pedidos)
+    public function edit(Pedido $pedido)
     {
         return view('pedidos.pedidosForm', compact('pedidos'));
     }
@@ -80,7 +80,7 @@ class PedidoController extends Controller
       $pedidos->platillo= $request->input('platillo');
       $pedidos->cantidad= $request->input('cantidad');
       $pedidos->save();
-      return redirect()->route('pedidos.index', $pedidos->id);
+      return redirect()->route('pedidos.index');
     }
 
     /**
