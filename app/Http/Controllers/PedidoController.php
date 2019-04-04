@@ -14,7 +14,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-      $pedidos = pedidos::all();
+      $pedidos = pedido::all();
       return view('pedidos.pedidosIndex', compact('pedidos'));
     }
 
@@ -36,7 +36,7 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-      $ped = new pedidos();
+      $ped = new pedido();
       $ped->mesa= $request->input('mesa');
       $ped->platillo= $request->input('platillo');
       $ped->cantidad= $request->input('cantidad');
@@ -48,50 +48,50 @@ class PedidoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pedidos  $pedidos
+     * @param  \App\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedido $pedidos)
+    public function show(Pedido $pedido)
     {
-        return view('pedidos.pedidosShow', compact('pedidos'));
+        return view('pedidos.pedidosShow',compact('pedido'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pedidos  $pedidos
+     * @param  \App\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
     public function edit(Pedido $pedido)
     {
-        return view('pedidos.pedidosForm', compact('pedidos'));
+        return view('pedidos.pedidosForm', compact('pedido'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pedidos  $pedidos
+     * @param  \App\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedidos $pedidos)
+    public function update(Request $request, Pedido $pedido)
     {
-      $pedidos->mesa= $request->input('mesa');
-      $pedidos->platillo= $request->input('platillo');
-      $pedidos->cantidad= $request->input('cantidad');
-      $pedidos->save();
+      $pedido->mesa= $request->input('mesa');
+      $pedido->platillo= $request->input('platillo');
+      $pedido->cantidad= $request->input('cantidad');
+      $pedido->save();
       return redirect()->route('pedidos.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pedidos  $pedidos
+     * @param  \App\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pedidos $pedidos)
+    public function destroy(Pedido $pedido)
     {
-      $pedidos->delete();
+      $pedido->delete();
       return redirect()->route('pedidos.index');
     }
 }
