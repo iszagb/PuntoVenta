@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMesasTable extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateMesasTable extends Migration
      */
     public function up()
     {
-        Schema::create('mesas', function (Blueprint $table) {
+        Schema::create('pedidos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('mesa');
+            $table->string('platillo');
+            $table->smallInteger('cantidad');
             $table->timestamps();
+
+            $table->foreign('mesa')
+                ->references('mesa_id')->on('mesas')
+                ->onDelete('cascade');
         });
     }
 
@@ -27,6 +33,6 @@ class CreateMesasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mesas');
+        Schema::dropIfExists('pedidos');
     }
 }

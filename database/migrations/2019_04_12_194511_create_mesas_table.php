@@ -4,20 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidosTable extends Migration
+class CreateMesasTable extends Migration
 {
-    /**xxx
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('mesas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('mesa');
-            $table->string('platillo');
-            $table->mediumInteger('cantidad');
+            $table->string('mesa_id')->unique();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreatePedidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('mesas');
     }
 }

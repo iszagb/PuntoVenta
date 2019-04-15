@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('/pedidos','PedidoController');
 
+Route::resource('/mesas','MesaController');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });

@@ -8,15 +8,13 @@
                   <div class="col-10"><h2>Detalle</h2></div>
                 </div>
     							<div class="table-head">
-    								<div class="serial">id</div>
-    								<div class="country">Mesa</div>
+    								<div class="serial">Mesa_id</div>
     								<div class="visit">Platillo</div>
     								<div class="visit">Cantidad</div>
                     <div class="visit">Detalle</div>
     							</div>
     							<div class="table-row">
-    								<div class="serial">{{$pedido->id}}</div>
-    								<div class="country">{{$pedido->mesa}}</div>
+    								<div class="country">{{$mesa->mesa_id}}</div>
     								<div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
                     <a href="{{route('pedidos.edit', $pedido->id) }}" class = "btn btn-sm btn-warning">Editar</a>

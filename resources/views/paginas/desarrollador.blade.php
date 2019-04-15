@@ -8,8 +8,7 @@
         <div class="col-lg-8 col-md-12">
           <p class="top-text">Desarrollador</p>
           <h1>Iszael Gonzalez Bañuelos</h1>
-          <p>Estudiante de cuarto semestre en ingeníeria informática, visionario
-              prometedor y chingon.</p>
+          <p>Estudiante de cuarto semestre en ingeníeria informática.</p>
         </div>
       </div>
     </div>

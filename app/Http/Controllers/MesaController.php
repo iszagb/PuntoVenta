@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mesa;
+use App\Pedido;
 use Illuminate\Http\Request;
 
 class MesaController extends Controller
@@ -14,7 +15,8 @@ class MesaController extends Controller
      */
     public function index()
     {
-        //
+        $mesas = mesa::all();
+        return view('mesas.mesasIndex', compact('mesas'));
     }
 
     /**
@@ -24,7 +26,7 @@ class MesaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mesas.mesasForm');
     }
 
     /**
@@ -35,7 +37,11 @@ class MesaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $mes = new mesa();
+      $mes->mesa_id= $request->input('mesa_id');
+      $mes->save();
+
+      return redirect()->route('mesas.index');
     }
 
     /**
@@ -44,9 +50,10 @@ class MesaController extends Controller
      * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Mesa $mesa)
+    public function show(Mesa $mesa, Pedido $pedido)
     {
-        //
+        $pedido = pedido::all();
+        return view('mesas.mesasShow',compact('mesa','pedido'));
     }
 
     /**

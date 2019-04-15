@@ -16,7 +16,7 @@
         <li class="nav-item"><a class="nav-link" href="welcome"> home</a></li>
         <li class="nav-item"><a class="nav-link" href="{{action('PaginaController@desarrollador')}}">Desarrolladores</a></li>
         <li class="nav-item"><a class="nav-link" href="menu.html">menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{route('pedidos.index')}}">Pedidos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('mesas.index')}}">Mesas</a></li>
         <li class="nav-item"><a class="nav-link" href="Chefs.html">Chefs</a></li>
         <li class="nav-item submenu dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
