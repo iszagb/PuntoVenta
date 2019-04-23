@@ -11,8 +11,8 @@ class Mesa extends Model
    * Establece relación hacia un pedido
    * @return type
    */
-  public function user()
+  public function pedidos()
   {
-      return $this->belongsToMany(Pedido::class);
+      return $this->hasMany('App\Pedido');
   }
 }

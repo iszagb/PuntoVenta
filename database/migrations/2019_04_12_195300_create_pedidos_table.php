@@ -24,6 +24,18 @@ class CreatePedidosTable extends Migration
                 ->references('mesa_id')->on('mesas')
                 ->onDelete('cascade');
         });
+
+        Schema::create('mesa_pedido', function (Blueprint $table) {
+            $table->string('mesa_id')->unique();
+            $table->unsignedInteger('pedido_id');
+            $table->foreign('mesa_id')
+                ->references('mesa_id')
+                ->on('mesas')
+                ->onDelete('cascade');
+            $table->foreign('pedido_id')
+                ->references('id')
+                ->on('pedidos');
+        });
     }
 
     /**
@@ -34,5 +46,6 @@ class CreatePedidosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('mesa_pedido');
     }
 }

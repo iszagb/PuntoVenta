@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pedido;
+use App\Mesa;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller

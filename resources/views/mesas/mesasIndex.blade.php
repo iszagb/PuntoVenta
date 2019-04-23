@@ -17,7 +17,10 @@
     							<div class="table-row">
     								<div class="serial">{{$mesa->id}}</div>
     								<div class="country">{{$mesa->mesa_id}}</div>
-                    <div class="visit"><a href="{{route('mesas.show', $mesa->id)}}" class="genric-btn info">Detalle</a></div>
+                    <div class="visit">
+                      <a href="{{route('mesas.show', $mesa->id)}}" class="genric-btn info">Detalle</a>
+                      <a href="{{route('pedidos.create')}}" class="genric-btn info">Agregar pedido</a>
+                    </div>
           				 </div>
                   @endforeach
   							</div>

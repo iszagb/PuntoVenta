@@ -50,7 +50,7 @@ class MesaController extends Controller
      * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Mesa $mesa, Pedido $pedido)
+    public function show(Mesa $mesa)
     {
         $pedido = pedido::all();
         return view('mesas.mesasShow',compact('mesa','pedido'));
@@ -88,5 +88,11 @@ class MesaController extends Controller
     public function destroy(Mesa $mesa)
     {
         //
+    }
+
+    public function eliminaPedido(Request $request, Mesa $mesa)
+    {
+        $mesa->pedidos()->detach($request->pedido_id);
+        return redirect()->route('mesas.show', $mesa->id);
     }
 }

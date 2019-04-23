@@ -23,6 +23,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::post('mesas/elimina-pedido/{mesa}', 'MesaController@eliminaPedido')
+    ->name('mesas.eliminaPedido');
+
 Route::get('/desarrollador', 'PaginaController@desarrollador');
 
 Auth::routes();
