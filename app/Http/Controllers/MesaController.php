@@ -37,6 +37,10 @@ class MesaController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+                  'mesa_id' => 'required|max:255',
+              ]);
+
       $mes = new mesa();
       $mes->mesa_id= $request->input('mesa_id');
       $mes->save();

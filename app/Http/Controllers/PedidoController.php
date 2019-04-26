@@ -37,6 +37,10 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+                  'mesa' => 'required|max:255',
+              ]);
+
       $ped = new pedido();
       $ped->mesa= $request->input('mesa');
       $ped->platillo= $request->input('platillo');
@@ -77,6 +81,10 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
+      $request->validate([
+                  'mesa' => 'required|max:255',
+              ]);
+
       $pedido->mesa= $request->input('mesa');
       $pedido->platillo= $request->input('platillo');
       $pedido->cantidad= $request->input('cantidad');

@@ -2,10 +2,9 @@
 
 @section('content')
 <div class= "row banner-bottom common-bottom-banner align-items-center justify-content-center">
-  <div class="progress-table-wrap">
   						<div class="progress-table">
                 <div class="row">
-                  <div class="col-6"><h2>Mesas</h2></div>
+                  <div class="col"><h2>Mesas</h2></div>
                   <div class="col"><a href="{{route('mesas.create')}}" class="genric-btn info">Agregar</a></div>
                 </div>
     							<div class="table-head">
@@ -23,7 +22,6 @@
                     </div>
           				 </div>
                   @endforeach
-  							</div>
   </div>
 </div>
 @endsection

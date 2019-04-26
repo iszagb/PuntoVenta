@@ -6,7 +6,9 @@
 <header class="fixed-menu">
   <div class="nav-wraper">
     <div class="navbar">
-      <li class="nav-item"><a class="nav-link" href="welcome"> login</a></li>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"> login</a></li>
+      </ul>
     </div>
   </div>
   <span class="menu-close"><i class="fa fa-times"></i></span>
