@@ -26,7 +26,8 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        return view('pedidos.pedidosForm');
+        $mesas = Mesa::all();
+        return view('pedidos.pedidosForm',compact('mesas'));
     }
 
     /**
@@ -38,11 +39,10 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-                  'mesa' => 'required|max:255',
+                  'mesa_id' => 'required|max:255',
               ]);
-
       $ped = new pedido();
-      $ped->mesa= $request->input('mesa');
+      $ped->mesa_id= $request->input('mesa_id');
       $ped->platillo= $request->input('platillo');
       $ped->cantidad= $request->input('cantidad');
       $ped->save();
@@ -69,7 +69,8 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        return view('pedidos.pedidosForm', compact('pedido'));
+        $mesas = Mesa::all();
+        return view('pedidos.pedidosForm', compact('pedido', 'mesas'));
     }
 
     /**
@@ -82,10 +83,10 @@ class PedidoController extends Controller
     public function update(Request $request, Pedido $pedido)
     {
       $request->validate([
-                  'mesa' => 'required|max:255',
+                  'mesa_id' => 'required|max:255',
               ]);
 
-      $pedido->mesa= $request->input('mesa');
+      $pedido->mesa= $request->input('mesa_id');
       $pedido->platillo= $request->input('platillo');
       $pedido->cantidad= $request->input('cantidad');
       $pedido->save();

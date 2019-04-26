@@ -16,7 +16,7 @@
     							</div>
     							<div class="table-row">
     								<div class="serial">{{$pedido->id}}</div>
-    								<div class="country">{{$pedido->mesa}}</div>
+    								<div class="country">{{$pedido->mesa_id}}</div>
     								<div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
                     <a href="{{route('pedidos.edit', $pedido->id) }}" class = "btn btn-sm btn-warning">Editar</a>

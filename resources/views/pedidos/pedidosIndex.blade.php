@@ -10,7 +10,7 @@
                 </div>
     							<div class="table-head">
     								<div class="serial">id</div>
-    								<div class="country">Mesa</div>
+    								<div class="country">Mesa_id</div>
     								<div class="visit">Platillo</div>
     								<div class="visit">Cantidad</div>
                     <div class="visit">Detalle</div>
@@ -18,7 +18,7 @@
                   @foreach ($pedidos as $pedido)
     							<div class="table-row">
     								<div class="serial">{{$pedido->id}}</div>
-    								<div class="country">{{$pedido->mesa}}</div>
+    								<div class="country">{{$pedido->mesa_id}}</div>
     								<div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
                     <div class="visit"><a href="{{route('pedidos.show', $pedido->id)}}" class="genric-btn info">detalle</a></div>

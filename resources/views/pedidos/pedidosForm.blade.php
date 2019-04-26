@@ -22,9 +22,11 @@
           <form action="{{route('pedidos.store')}}"method="POST">
         @endif
         @csrf
-				<div class="mt-10">
-						<input type="text" value="{{$pedido->mesa ?? ''}}{{ old('mesa') }}" name="mesa" placeholder="Nombre de mesa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre de mesa'" >
-				</div>
+        <select name="mesa_id" class="form-control">
+                    @foreach($mesas as $mesa)
+                        <option value="{{ $mesa->mesa_id }}" {{ isset($pedido) && $pedido->mesa_id == $mesa->mesa_id ? 'selected' : '' }}>{{ $mesa->mesa_id}}</option>
+                    @endforeach
+        </select>
 				<div class="mt-10">
 				      <input type="text" value="{{$pedido->platillo ?? ''}}{{ old('platillo') }}" name="platillo" placeholder="Platillo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Platillo'" >
 				</div>

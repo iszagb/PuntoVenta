@@ -8,16 +8,14 @@
                   <div class="col-10"><h2>Detalle</h2></div>
                 </div>
     							<div class="table-head">
-    								<div class="serial">Mesa_id</div>
-    								<div class="visit">Pedido_id</div>
+    								<div class="serial">Mesa</div>
                     <div class="visit">Platillo</div>
                     <div class="visit">Cantidad</div>
                     <div class="visit">Detalle</div>
     							</div>
-                  @foreach($mesa->pedidos as pedido)
+                  @foreach($mesa->pedidos as $pedido)
     							<div class="table-row">
-    								<div class="country">{{$pedido->mesa_id}}</div>
-    								<div class="visit">{{$pedido->pedido_id}}</div>
+                    <div class="visit">{{$pedido->mesa_id}}</div>
                     <div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
                     <a href="{{route('pedidos.edit', $pedido->id) }}" class = "btn btn-sm btn-warning">Editar</a>

@@ -56,8 +56,7 @@ class MesaController extends Controller
      */
     public function show(Mesa $mesa)
     {
-        $pedido = pedido::all();
-        return view('mesas.mesasShow',compact('mesa','pedido'));
+        return view('mesas.mesasShow',compact('mesa'));
     }
 
     /**
