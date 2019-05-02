@@ -45,7 +45,8 @@ class PedidoController extends Controller
       $ped->mesa_id= $request->input('mesa_id');
       $ped->platillo= $request->input('platillo');
       $ped->cantidad= $request->input('cantidad');
-      $ped->save();
+      $mesa = Mesa::find($request->mesa_id);
+      $mesa->pedidos()->save($ped);
 
       return redirect()->route('pedidos.index');
     }

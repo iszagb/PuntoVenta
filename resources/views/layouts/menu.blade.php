@@ -6,9 +6,36 @@
 <header class="fixed-menu">
   <div class="nav-wraper">
     <div class="navbar">
+      @guest
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"> login</a></li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li>
+          @if (Route::has('register'))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              </li>
+          @endif
+      @else
+          <li class="nav-item submenu dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ Auth::user()->name }}
+              </a>
+
+              <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a></li>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </ul>
+          </li>
       </ul>
+      @endguest
     </div>
   </div>
   <span class="menu-close"><i class="fa fa-times"></i></span>
@@ -20,7 +47,7 @@
   <div class="nav-wraper">
     <div class="navbar">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="welcome"> home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url('/welcome') }}"> home</a></li>
         <li class="nav-item"><a class="nav-link" href="{{action('PaginaController@desarrollador')}}">Desarrolladores</a></li>
         <li class="nav-item"><a class="nav-link" href="menu.html">menu</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('mesas.index')}}">Mesas</a></li>

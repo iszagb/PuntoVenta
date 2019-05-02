@@ -34,13 +34,6 @@
                                   <option value="gerente">Gerente</option>
                                   <option value="mesero">Mesero</option>
                               </select>
-                                {{--<input id="rol" type="text" class="form-control{{ $errors->has('rol') ? ' is-invalid' : '' }}" name="rol" value="{{ old('rol') }}" required autofocus>--}}
-
-                                @if ($errors->has('rol'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('rol') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
 
