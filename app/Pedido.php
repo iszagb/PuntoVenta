@@ -10,4 +10,8 @@ class Pedido extends Model
   {
       return $this->belongsTo(Mesa::class);
   }
+  public function producto()
+  {
+      return $this->belongsTo(Producto::class);
+  }
 }

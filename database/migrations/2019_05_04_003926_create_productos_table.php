@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidosTable extends Migration
+class CreateProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreatePedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('mesa_id');
-            $table->string('platillo');
-            $table->smallInteger('cantidad');
+            $table->string('nombre_Producto');
+            $table->integer('precio');
+            $table->string('descripcion');
             $table->timestamps();
-
-            $table->foreign('mesa_id')
-                ->references('mesa_id')->on('mesas')
-                ->onDelete('cascade');
         });
     }
 
@@ -33,6 +29,6 @@ class CreatePedidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('productos');
     }
 }

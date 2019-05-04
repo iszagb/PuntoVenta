@@ -19,6 +19,8 @@ Route::resource('/pedidos','PedidoController');
 
 Route::resource('/mesas','MesaController')->middleware('auth');
 
+Route::resource('/productos','ProductoController')->middleware('auth');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });

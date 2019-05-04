@@ -49,9 +49,8 @@
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="{{ url('/welcome') }}"> home</a></li>
         <li class="nav-item"><a class="nav-link" href="{{action('PaginaController@desarrollador')}}">Desarrolladores</a></li>
-        <li class="nav-item"><a class="nav-link" href="menu.html">menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('productos.index')}}">menu</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('mesas.index')}}">Mesas</a></li>
-        <li class="nav-item"><a class="nav-link" href="Chefs.html">Chefs</a></li>
         <li class="nav-item submenu dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
            aria-expanded="false">Pages</a>

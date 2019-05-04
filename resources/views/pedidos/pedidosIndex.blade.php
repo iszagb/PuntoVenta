@@ -6,7 +6,7 @@
   						<div class="progress-table">
                 <div class="row">
                   <div class="col-10"><h2>Pedidos</h2></div>
-                  <div class="col"><a href="{{route('pedidos.create')}}" class="genric-btn info">Agregar</a></div>
+                  <div class="col"><a href="{{route('productos.index')}}" class="genric-btn info">Agregar</a></div>
                 </div>
     							<div class="table-head">
     								<div class="serial">id</div>

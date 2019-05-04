@@ -15,7 +15,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-      $pedidos = pedido::all();
+      $pedidos = Pedido::all();
       return view('pedidos.pedidosIndex', compact('pedidos'));
     }
 
@@ -41,12 +41,11 @@ class PedidoController extends Controller
       $request->validate([
                   'mesa_id' => 'required|max:255',
               ]);
-      $ped = new pedido();
+      $ped = new Pedido();
       $ped->mesa_id= $request->input('mesa_id');
       $ped->platillo= $request->input('platillo');
       $ped->cantidad= $request->input('cantidad');
-      $mesa = Mesa::find($request->mesa_id);
-      $mesa->pedidos()->save($ped);
+      $ped->save();
 
       return redirect()->route('pedidos.index');
     }

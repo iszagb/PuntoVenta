@@ -15,7 +15,7 @@ class MesaController extends Controller
      */
     public function index()
     {
-        $mesas = mesa::all();
+        $mesas = Mesa::all();
         return view('mesas.mesasIndex', compact('mesas'));
     }
 
