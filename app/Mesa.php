@@ -15,4 +15,9 @@ class Mesa extends Model
   {
       return $this->hasMany('App\Pedido');
   }
+
+  public function setNomMesaAttribute($mesa)
+    {
+        $this->attributes['mesa'] = strtoupper($mesa);
+    }
 }

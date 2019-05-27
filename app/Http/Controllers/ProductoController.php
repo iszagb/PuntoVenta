@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Producto;
 use App\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('admin')->only('create', 'store', 'edit', 'update', 'destroy','show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      $productos = Producto::all();
+      $productos = DB::table('productos')->paginate(5);
       return view('productos.productosIndex', compact('productos'));
     }
 
@@ -47,7 +52,11 @@ class ProductoController extends Controller
       $product->descripcion = $request->input('descripcion');
       $product->save();
 
-      return redirect()->route('productos.index');
+      return redirect()->route('productos.index')
+              ->with([
+                        'mensaje' => 'Producto añadido con exito!',
+                        'alert-class' => 'alert-success'
+                    ]);
     }
 
     /**
@@ -90,7 +99,11 @@ class ProductoController extends Controller
       $producto->descripcion = $request->input('descripcion');
       $producto->save();
 
-      return redirect()->route('productos.index');
+      return redirect()->route('productos.index')
+              ->with([
+                        'mensaje' => 'Producto modificado exitosamente!',
+                        'alert-class' => 'alert-success'
+                    ]);
     }
 
     /**
@@ -102,6 +115,10 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
       $producto->delete();
-      return redirect()->route('productos.index');
+      return redirect()->route('productos.index')
+              ->with([
+                        'mensaje' => 'Producto eliminado correctamente',
+                        'alert-class' => 'alert-danger'
+                    ]);
     }
 }

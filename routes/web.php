@@ -33,3 +33,4 @@ Route::get('/desarrollador', 'PaginaController@desarrollador');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/archivos', 'ArchivoController');

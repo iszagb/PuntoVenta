@@ -38,14 +38,18 @@ class MesaController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-                  'mesa_id' => 'required|max:255',
+                  'mesa' => 'required|max:255',
               ]);
 
       $mes = new mesa();
-      $mes->mesa_id= $request->input('mesa_id');
+      $mes->mesa= $request->input('mesa');
       $mes->save();
 
-      return redirect()->route('mesas.index');
+      return redirect()->route('mesas.index')
+              ->with([
+                        'mensaje' => 'Mesa añadida con exito!',
+                        'alert-class' => 'alert-success'
+                    ]);
     }
 
     /**
@@ -90,7 +94,12 @@ class MesaController extends Controller
      */
     public function destroy(Mesa $mesa)
     {
-        //
+      $mesa->delete();
+      return redirect()->route('mesas.index')
+              ->with([
+                        'mensaje' => 'Pago exitoso!',
+                        'alert-class' => 'alert-success'
+                    ]);
     }
 
     public function eliminaPedido(Request $request, Mesa $mesa)

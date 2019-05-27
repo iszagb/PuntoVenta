@@ -20,13 +20,15 @@ class CreatePedidosTable extends Migration
           $table->string('platillo');
           $table->smallInteger('cantidad');
           $table->timestamps();
+          $table->softDeletes();
 
           $table->foreign('mesa_id')
               ->references('id')->on('mesas')
               ->onDelete('cascade');
 
           $table->foreign('producto_id')
-              ->references('id')->on('productos');
+              ->references('id')->on('productos')
+              ->onDelete('cascade');
       });
     }
 

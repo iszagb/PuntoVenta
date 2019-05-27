@@ -15,7 +15,7 @@
                   @foreach ($mesas as $mesa)
     							<div class="table-row">
     								<div class="serial">{{$mesa->id}}</div>
-    								<div class="country">{{$mesa->mesa_id}}</div>
+    								<div class="country">{{$mesa->mesa}}</div>
                     <div class="visit">
                       <a href="{{route('mesas.show', $mesa->id)}}" class="genric-btn info">Detalle</a>
                       <a href="{{route('productos.index')}}" class="genric-btn info">Agregar pedido</a>

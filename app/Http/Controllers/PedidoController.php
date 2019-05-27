@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pedido;
 use App\Mesa;
+use App\Producto;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -24,10 +25,11 @@ class PedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $product = Producto::find($request->producto_id);
         $mesas = Mesa::all();
-        return view('pedidos.pedidosForm',compact('mesas'));
+        return view('pedidos.pedidosForm',compact('product','mesas'));
     }
 
     /**
@@ -39,15 +41,21 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-                  'mesa_id' => 'required|max:255',
+                  'mesa_id' => 'required',
+                  'cantidad' => 'required',
               ]);
       $ped = new Pedido();
       $ped->mesa_id= $request->input('mesa_id');
+      $ped->producto_id= $request->input('producto_id');
       $ped->platillo= $request->input('platillo');
       $ped->cantidad= $request->input('cantidad');
       $ped->save();
 
-      return redirect()->route('pedidos.index');
+      return redirect()->route('pedidos.index')
+          ->with([
+                    'mensaje' => 'Pedido exitoso!',
+                    'alert-class' => 'alert-success'
+                ]);
     }
 
     /**
@@ -86,11 +94,16 @@ class PedidoController extends Controller
                   'mesa_id' => 'required|max:255',
               ]);
 
-      $pedido->mesa= $request->input('mesa_id');
+      $pedido->mesa_id= $request->input('mesa_id');
+      $pedido->producto_id=$request->input('producto_id');
       $pedido->platillo= $request->input('platillo');
       $pedido->cantidad= $request->input('cantidad');
       $pedido->save();
-      return redirect()->route('pedidos.index');
+      return redirect()->route('pedidos.index')
+              ->with([
+                        'mensaje' => 'Pedido modificado exitosamente!',
+                        'alert-class' => 'alert-success'
+                    ]);
     }
 
     /**
@@ -102,6 +115,10 @@ class PedidoController extends Controller
     public function destroy(Pedido $pedido)
     {
       $pedido->delete();
-      return redirect()->route('pedidos.index');
+      return redirect()->route('pedidos.index')
+              ->with([
+                        'mensaje' => 'Pedido eliminado exitosamente',
+                        'alert-class' => 'alert-danger'
+                    ]);
     }
 }

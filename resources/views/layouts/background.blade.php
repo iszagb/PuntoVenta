@@ -27,6 +27,7 @@
 	<!--================ End Header Menu Area =================-->
 
 	<div class="site-main">
+		@include('partials.mensajes')
 		<!--================ Start Home Banner Area =================-->
 		<section class="home_banner_area">
 			<div class="banner_inner">

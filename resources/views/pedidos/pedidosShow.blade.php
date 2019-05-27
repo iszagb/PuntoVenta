@@ -20,11 +20,13 @@
     								<div class="visit">{{$pedido->platillo}}</div>
                     <div class="visit">{{$pedido->cantidad}}</div>
                     <a href="{{route('pedidos.edit', $pedido->id) }}" class = "btn btn-sm btn-warning">Editar</a>
+                    @can('delete',$pedido)
                     <form action="{{route('pedidos.destroy', $pedido->id)}}" method="POST">
                        <input type="hidden" name="_method" value="DELETE">
                        @csrf
                        <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
                     </form>
+                    @endcan
                   </div>
   							</div>
   </div>
