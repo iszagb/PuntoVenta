@@ -6,8 +6,6 @@
   						<div class="progress-table">
                 <div class="row">
                   <div class="col-8"><h2>Menu</h2></div>
-                  <div class="col"><a href="{{route('productos.cheap')}}" class="genric-btn info">Barato</a></div>
-                  @can('manejar-producto')<div class="col"><a href="{{route('productos.create')}}" class="genric-btn info">Agregar</a></div>@endcan
                 </div>
     							<div class="table-head">
     								<div class="serial">id</div>
@@ -28,7 +26,6 @@
           				 </div>
                   @endforeach
   							</div>
-                {{ $productos->links() }}
 
   </div>
 </div>

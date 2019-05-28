@@ -6,6 +6,7 @@ use App\Producto;
 use App\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Scope;
 
 class ProductoController extends Controller
 {
@@ -120,5 +121,11 @@ class ProductoController extends Controller
                         'mensaje' => 'Producto eliminado correctamente',
                         'alert-class' => 'alert-danger'
                     ]);
+    }
+
+    public function cheap()
+    {
+      $productos = Producto::bara()->get();
+      return view('productos.productosBaras', compact('productos'));
     }
 }

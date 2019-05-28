@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::resource('/pedidos','PedidoController');
 
 Route::resource('/mesas','MesaController')->middleware('auth');
+Route::get('/productos/barato', 'ProductoController@cheap')->name('productos.cheap');
 
 Route::resource('/productos','ProductoController')->middleware('auth');
 

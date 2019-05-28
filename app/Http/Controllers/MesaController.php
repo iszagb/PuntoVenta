@@ -42,7 +42,7 @@ class MesaController extends Controller
               ]);
 
       $mes = new mesa();
-      $mes->mesa= $request->input('mesa');
+      $mes->mesa = $request->input('mesa');
       $mes->save();
 
       return redirect()->route('mesas.index')

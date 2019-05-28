@@ -53,7 +53,6 @@
         <li class="nav-item"><a class="nav-link" href="{{route('productos.index')}}">menu</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('mesas.index')}}">Mesas</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('pedidos.index')}}">Pedidos</a></li>
-        @endif
         <li class="nav-item submenu dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
            aria-expanded="false">Archivos</a>
@@ -61,6 +60,7 @@
             <li class="nav-item"><a class="nav-link" href="{{route('archivos.index')}}">Mis archivos</a></li>
           </ul>
         </li>
+        @endif
       </ul>
     </div>
   </div>

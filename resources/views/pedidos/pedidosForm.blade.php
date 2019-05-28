@@ -22,7 +22,8 @@
           <form action="{{route('pedidos.store')}}"method="POST">
         @endif
         @csrf
-        <select name="mesa_id" class="form-control">
+        <label for ="mesa" class = "form-control">Mesa</label>
+        <select id="mesa" name="mesa_id" class="form-control">
                     @foreach($mesas as $mesa)
                         <option value="{{ $mesa->id }}" {{ isset($pedido) && $pedido->mesa_id == $mesa->mesa_id ? 'selected' : '' }}>{{ $mesa->id}}</option>
                     @endforeach
@@ -31,7 +32,7 @@
               <input type="text" value="{{isset($pedido) ? $pedido->platillo : $product->nombre_Producto}}" name="platillo" readonly>
         </div>
         <div class="mt-10">
-				      <input type="number" value="{{isset($pedido) ? $pedido->producto_id : $product->id}}" readonly name="producto_id" placeholder="Product id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Product id'" >
+				      <input type="hidden" value="{{isset($pedido) ? $pedido->producto_id : $product->id}}" readonly name="producto_id" placeholder="Product id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Product id'" >
 				</div>
 				<div class="mt-10">
 							<input type="number" value="{{$pedido->cantidad ?? ''}}{{ old('cantidad') }}" name="cantidad" placeholder="Cantidad" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cantidad'" >
